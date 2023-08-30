@@ -2,13 +2,11 @@ import requests
 import os
 import uuid
 
-# Kong API URL
-KONG_API_URL = "https://your-kong-api-url.com"  # Replace with your Kong API URL
+KONG_API_URL = "http://localhost:8000/test-CDN-api"  #The KONG API URL which build from Kong API Gateway's docker-compose!
 
 # Function to upload a file and generate a unique CDN URL
 def upload(file_path):
     try:
-        # Generate a unique asset ID (you can use a UUID for this)
         asset_id = str(uuid.uuid4())
 
         # Prepare the file for uploading
@@ -51,15 +49,3 @@ def retrieve(cdn_url, save_path):
     except Exception as e:
         print(f"Error retrieving file: {str(e)}")
         return False
-
-# Example usage
-if __name__ == "__main__":
-    file_to_upload = "path/to/your/file.jpg"
-    uploaded_cdn_url = upload(file_to_upload)
-
-    if uploaded_cdn_url:
-        # Specify where to save the retrieved file
-        save_path = "path/to/save/retrieved/file.jpg"
-        
-        # Retrieve the file from the CDN
-        retrieve(uploaded_cdn_url, save_path)
