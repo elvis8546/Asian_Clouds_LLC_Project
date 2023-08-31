@@ -11,16 +11,11 @@ To build Kong service(In Linux environment):
 4. KONG_DATABASE=postgres docker-compose --profile database up
 
 Some command to operation in Kong:
-1. Create a Service:
-  curl -i -X POST --url http://localhost:8001/services/ --data 'name=your-service' --data 'url=http://my-backend-api.com'
-2. Create a Route:
-  curl -i -X POST --url http://localhost:8001/services/your-service/routes --data 'paths[]=/my-api'
-3. Test Your API:
-  curl http://localhost:8000/my-api
-4. To list all services:
-  curl -i http://localhost:8001/services (Can open in web browser with URL) 
-5. To list all routes:
-  curl -i http://localhost:8001/routes (Can open in web browser with URL) 
+1. Create a Service: curl -i -X POST --url http://localhost:8001/services/ --data 'name=your-service' --data 'url=http://my-backend-api.com'
+2. Create a Route: curl -i -X POST --url http://localhost:8001/services/your-service/routes --data 'paths[]=/my-api'
+3. Test Your API: curl http://localhost:8000/my-api
+4. To list all services: curl -i http://localhost:8001/services (Can open in web browser with URL) 
+5. To list all routes: curl -i http://localhost:8001/routes (Can open in web browser with URL) 
 
 Some default setting create by me:
 1. name=CDN-service
